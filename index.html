@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arun Prakash N — Digital Marketing Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0d0d0d;
+    --paper: #f5f2ec;
+    --orange: #ff5c1a;
+    --teal: #00c4a7;
+    --yellow: #ffd000;
+    --purple: #7c3aed;
+    --soft: #f0ece3;
+    --mid: #c8c2b5;
+    --white: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(245,242,236,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--mid);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800; font-size: 1.1rem;
+    letter-spacing: -0.5px;
+  }
+  .nav-logo span { color: var(--orange); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-size: 0.88rem; font-weight: 500;
+    text-decoration: none; color: var(--ink);
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--orange); }
+  .nav-cta {
+    background: var(--orange); color: var(--white);
+    border: none; padding: 10px 22px;
+    border-radius: 50px; font-family: 'DM Sans', sans-serif;
+    font-weight: 500; font-size: 0.88rem;
+    cursor: pointer; text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255,92,26,0.35); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 120px 48px 80px;
+    gap: 40px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg-blob {
+    position: absolute; border-radius: 50%;
+    filter: blur(80px); opacity: 0.18; pointer-events: none;
+  }
+  .blob1 { width: 500px; height: 500px; background: var(--orange); top: -100px; right: -100px; }
+  .blob2 { width: 350px; height: 350px; background: var(--teal); bottom: 0; left: 100px; }
+  .blob3 { width: 250px; height: 250px; background: var(--yellow); top: 200px; left: 40%; }
+
+  .hero-left { position: relative; z-index: 2; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--ink); color: var(--yellow);
+    padding: 6px 16px; border-radius: 50px;
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; margin-bottom: 28px;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-tag::before { content: '●'; font-size: 0.5rem; animation: pulse 1.5s ease infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 800; line-height: 1.0;
+    letter-spacing: -2px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  h1 .accent { color: var(--orange); }
+  h1 .line2 { display: block; }
+
+  .hero-desc {
+    margin-top: 24px; font-size: 1.1rem;
+    color: #555; line-height: 1.7; max-width: 480px;
+    font-weight: 300;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .hero-ctas {
+    margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .btn-primary {
+    background: var(--ink); color: var(--white);
+    padding: 14px 32px; border-radius: 50px;
+    font-weight: 500; font-size: 0.95rem;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(13,13,13,0.25); }
+  .btn-outline {
+    border: 2px solid var(--ink); color: var(--ink);
+    padding: 12px 30px; border-radius: 50px;
+    font-weight: 500; font-size: 0.95rem;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { background: var(--ink); color: var(--white); }
+
+  .hero-stats {
+    display: flex; gap: 36px; margin-top: 52px;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.2rem; font-weight: 800; line-height: 1;
+  }
+  .stat-num span { color: var(--orange); }
+  .stat-label { font-size: 0.8rem; color: #777; margin-top: 4px; font-weight: 400; }
+
+  .hero-right {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; align-items: center; gap: 20px;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .hero-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 28px 32px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+    width: 100%;
+    transition: transform 0.3s;
+  }
+  .hero-card:hover { transform: translateY(-4px); }
+  .card-icon { font-size: 2rem; margin-bottom: 12px; }
+  .card-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 6px; }
+  .card-sub { font-size: 0.85rem; color: #777; }
+  .card-big { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--orange); }
+  .card-row { display: flex; gap: 16px; }
+  .card-row .hero-card { flex: 1; }
+  .card-teal { border-top: 4px solid var(--teal); }
+  .card-yellow { border-top: 4px solid var(--yellow); }
+  .card-purple { border-top: 4px solid var(--purple); }
+
+  /* ── SECTIONS SHARED ── */
+  section { padding: 100px 48px; }
+  .section-label {
+    display: inline-block;
+    font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--orange); margin-bottom: 16px;
+  }
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800; letter-spacing: -1px;
+    line-height: 1.1;
+  }
+  .section-intro { font-size: 1.05rem; color: #666; line-height: 1.75; max-width: 560px; margin-top: 16px; font-weight: 300; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--ink); color: var(--white); }
+  #about h2 { color: var(--white); }
+  #about .section-label { color: var(--teal); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; margin-top: 52px; align-items: start;
+  }
+  .about-text p { font-size: 1.05rem; line-height: 1.8; color: #bbb; margin-bottom: 20px; font-weight: 300; }
+  .about-text p strong { color: var(--white); font-weight: 500; }
+  .about-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .pill {
+    padding: 8px 18px; border-radius: 50px;
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.02em;
+  }
+  .pill-orange { background: rgba(255,92,26,0.2); color: #ff7a47; border: 1px solid rgba(255,92,26,0.3); }
+  .pill-teal   { background: rgba(0,196,167,0.15); color: var(--teal); border: 1px solid rgba(0,196,167,0.25); }
+  .pill-yellow { background: rgba(255,208,0,0.15); color: #ffd000; border: 1px solid rgba(255,208,0,0.25); }
+  .pill-purple { background: rgba(124,58,237,0.2); color: #a78bfa; border: 1px solid rgba(124,58,237,0.3); }
+
+  .about-timeline { display: flex; flex-direction: column; gap: 28px; }
+  .timeline-item {
+    border-left: 2px solid #333;
+    padding-left: 24px;
+    position: relative;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute; left: -6px; top: 6px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--orange);
+  }
+  .tl-date { font-size: 0.78rem; color: #666; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
+  .tl-role { font-family: 'Syne', sans-serif; font-weight: 700; color: var(--white); margin-bottom: 2px; }
+  .tl-company { font-size: 0.88rem; color: var(--teal); margin-bottom: 6px; }
+  .tl-desc { font-size: 0.88rem; color: #888; line-height: 1.6; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--soft); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px; margin-top: 52px;
+  }
+  .service-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 36px 30px;
+    position: relative; overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: default;
+  }
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+  .service-card::after {
+    content: ''; position: absolute;
+    bottom: 0; left: 0; right: 0; height: 4px;
+  }
+  .sc1::after { background: var(--orange); }
+  .sc2::after { background: var(--teal); }
+  .sc3::after { background: var(--yellow); }
+  .sc4::after { background: var(--purple); }
+  .sc5::after { background: var(--orange); }
+  .sc6::after { background: var(--teal); }
+
+  .svc-icon { font-size: 2.4rem; margin-bottom: 20px; }
+  .svc-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.15rem; margin-bottom: 12px; }
+  .svc-desc { font-size: 0.88rem; color: #666; line-height: 1.7; }
+  .svc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+  .svc-tag { background: var(--soft); padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; color: #555; }
+
+  /* ── CASE STUDIES ── */
+  #results { background: var(--white); }
+  .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 52px; }
+  .result-card {
+    border-radius: 20px; overflow: hidden;
+    border: 1px solid #eee;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .result-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+  .result-header {
+    padding: 28px 28px 20px;
+    color: var(--white);
+    position: relative;
+  }
+  .rh1 { background: linear-gradient(135deg, #ff5c1a, #ff9a6c); }
+  .rh2 { background: linear-gradient(135deg, #00c4a7, #00e8c6); }
+  .rh3 { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
+  .result-industry {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; opacity: 0.8; margin-bottom: 8px;
+  }
+  .result-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.3rem; line-height: 1.2; }
+  .result-body { padding: 24px 28px; }
+  .result-metric {
+    display: flex; align-items: baseline; gap: 6px;
+    margin-bottom: 8px;
+  }
+  .metric-big { font-family: 'Syne', sans-serif; font-size: 2.4rem; font-weight: 800; line-height: 1; }
+  .metric-label { font-size: 0.85rem; color: #666; }
+  .result-detail { font-size: 0.88rem; color: #555; line-height: 1.65; margin-top: 12px; }
+  .result-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+  .result-tag { background: var(--soft); padding: 4px 12px; border-radius: 50px; font-size: 0.72rem; color: #555; font-weight: 500; }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--soft); }
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 52px; }
+  .testi-card {
+    background: var(--white); border-radius: 20px; padding: 32px 28px;
+    position: relative;
+    transition: transform 0.3s;
+  }
+  .testi-card:hover { transform: translateY(-4px); }
+  .testi-quote {
+    font-size: 3rem; line-height: 1; color: var(--orange);
+    font-family: Georgia, serif; margin-bottom: 12px;
+  }
+  .testi-text { font-size: 0.92rem; color: #444; line-height: 1.75; font-style: italic; }
+  .testi-author { margin-top: 24px; display: flex; align-items: center; gap: 12px; }
+  .testi-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--white);
+    flex-shrink: 0;
+  }
+  .av1 { background: linear-gradient(135deg, var(--orange), #ff9a6c); }
+  .av2 { background: linear-gradient(135deg, var(--teal), #00e8c6); }
+  .av3 { background: linear-gradient(135deg, var(--purple), #a78bfa); }
+  .testi-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.92rem; }
+  .testi-role { font-size: 0.78rem; color: #888; margin-top: 2px; }
+  .stars { color: var(--yellow); margin-bottom: 16px; font-size: 0.9rem; }
+
+  /* ── SKILLS BAND ── */
+  #skills-band {
+    background: var(--ink);
+    padding: 60px 48px;
+    overflow: hidden;
+  }
+  .skills-band-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: #555; text-align: center; margin-bottom: 32px;
+  }
+  .marquee-wrap { overflow: hidden; }
+  .marquee {
+    display: flex; gap: 24px;
+    animation: marquee 25s linear infinite;
+    width: max-content;
+  }
+  .marquee:hover { animation-play-state: paused; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .skill-badge {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 50px;
+    padding: 10px 22px;
+    white-space: nowrap;
+    font-size: 0.85rem; font-weight: 500; color: #ccc;
+    transition: all 0.2s;
+    cursor: default;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .skill-badge:hover { background: var(--orange); color: var(--white); border-color: var(--orange); }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--ink); color: var(--white); }
+  #contact h2 { color: var(--white); }
+  #contact .section-label { color: var(--teal); }
+  #contact .section-intro { color: #888; }
+  .contact-layout {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; margin-top: 52px; align-items: start;
+  }
+  .contact-info { display: flex; flex-direction: column; gap: 24px; }
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 20px 24px;
+    background: #1a1a1a; border-radius: 14px;
+    border: 1px solid #2a2a2a;
+    transition: border-color 0.2s;
+  }
+  .contact-item:hover { border-color: var(--orange); }
+  .contact-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .contact-label { font-size: 0.75rem; color: #666; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
+  .contact-value { color: var(--white); font-size: 0.95rem; }
+  .contact-value a { color: var(--teal); text-decoration: none; }
+  .contact-value a:hover { text-decoration: underline; }
+
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+  .form-group label { font-size: 0.78rem; color: #777; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+  .form-group input, .form-group textarea, .form-group select {
+    background: #1a1a1a; border: 1px solid #333;
+    border-radius: 10px; padding: 14px 18px;
+    color: var(--white); font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem;
+    transition: border-color 0.2s;
+    outline: none; resize: none;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--orange); }
+  .form-group select option { background: #1a1a1a; }
+  .form-group textarea { height: 130px; }
+  .btn-submit {
+    background: linear-gradient(135deg, var(--orange), #ff9a6c);
+    color: var(--white); border: none;
+    padding: 16px 36px; border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600; font-size: 1rem;
+    cursor: pointer; align-self: flex-start;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(255,92,26,0.4); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #080808;
+    padding: 32px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; color: var(--white); font-size: 1rem; }
+  .footer-logo span { color: var(--orange); }
+  .footer-text { font-size: 0.82rem; color: #555; }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { color: #555; text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--teal); }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; padding: 110px 24px 60px; }
+    .hero-right { display: none; }
+    section { padding: 72px 24px; }
+    .about-grid, .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+    .services-grid, .results-grid, .testi-grid { grid-template-columns: 1fr; }
+    footer { padding: 24px; }
+    .form-row { grid-template-columns: 1fr; }
+    #skills-band { padding: 48px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Arun<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Hire Me →</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-blob blob1"></div>
+  <div class="hero-bg-blob blob2"></div>
+  <div class="hero-bg-blob blob3"></div>
+
+  <div class="hero-left">
+    <div class="hero-tag">Available for Freelance & Full-Time</div>
+    <h1>
+      Digital<br>
+      <span class="accent">Marketing</span><br>
+      <span class="line2">Specialist.</span>
+    </h1>
+    <p class="hero-desc">
+      I'm <strong>Arun Prakash N</strong> — a results-driven marketer with <strong>4+ years</strong> of experience turning ad budgets into real business outcomes. Social Media, Google Ads, SEO & AI-powered campaigns — I do it all.
+    </p>
+    <div class="hero-ctas">
+      <a href="#results" class="btn-primary">See My Results ↓</a>
+      <a href="#contact" class="btn-outline">Let's Talk</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">25<span>x</span></div>
+        <div class="stat-label">ROI Delivered</div>
+      </div>
+      <div>
+        <div class="stat-num">15<span>+</span></div>
+        <div class="stat-label">Brands Managed</div>
+      </div>
+      <div>
+        <div class="stat-num">4<span>+</span></div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-card card-teal">
+      <div class="card-icon">📈</div>
+      <div class="card-big">25x</div>
+      <div class="card-title">ROI on Meta Ads</div>
+      <div class="card-sub">Travel agency client · Exceeded benchmarks</div>
+    </div>
+    <div class="card-row">
+      <div class="hero-card card-yellow">
+        <div class="card-icon">🎯</div>
+        <div class="card-big">1000+</div>
+        <div class="card-title">Leads Generated</div>
+        <div class="card-sub">₹5k/month budget</div>
+      </div>
+      <div class="hero-card card-purple">
+        <div class="card-icon">🏆</div>
+        <div class="card-big">#1</div>
+        <div class="card-title">Best Performer</div>
+        <div class="card-sub">FY 2023–2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="reveal">
+    <span class="section-label">Who I Am</span>
+    <h2>Marketer. Strategist.<br>ROI Obsessed.</h2>
+  </div>
+  <div class="about-grid reveal">
+    <div class="about-text">
+      <p>I'm a <strong>Digital Marketing Specialist</strong> based in Chennai with 4+ years of hands-on experience running campaigns across Healthcare, Travel, Real Estate, Hospitality, and Education sectors.</p>
+      <p>My strength is <strong>Social Media Marketing</strong> — building brands from the ground up, growing engaged communities, and converting followers into customers. I pair that with deep expertise in <strong>Google Ads, SEO, and Marketing Automation</strong> to build full-funnel strategies that actually move the needle.</p>
+      <p>I hold an <strong>MBA (Marketing & Finance)</strong> with a 9.33 CGPA, an Executive Programme certification from <strong>IIM Indore</strong>, and a Generative AI for Marketing certification — because I believe the best marketers embrace new tools fast.</p>
+      <div class="about-pills">
+        <span class="pill pill-orange">MBA — IIM Indore Certified</span>
+        <span class="pill pill-teal">Generative AI in Marketing</span>
+        <span class="pill pill-yellow">Best Performer 2023–24</span>
+        <span class="pill pill-purple">Team Lead — 5 Members</span>
+      </div>
+    </div>
+    <div class="about-timeline">
+      <div class="timeline-item">
+        <div class="tl-date">June 2022 – Present</div>
+        <div class="tl-role">Digital Marketing Expert</div>
+        <div class="tl-company">Jorim Technology Solutions</div>
+        <div class="tl-desc">Managing end-to-end campaigns across 5 industries. Leading a team of 4–5 marketers. Primary client liaison for key accounts. Awarded Best Performer Overall 2023–24.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-date">Sept 2021 – May 2022</div>
+        <div class="tl-role">Digital Marketing Executive</div>
+        <div class="tl-company">Slate And Pencil</div>
+        <div class="tl-desc">Social media content creation, marketing collateral design using Adobe XD, and collaboration with UI/UX teams for website projects.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-date">Sept 2024 – Feb 2025</div>
+        <div class="tl-role">Executive Programme in Digital Marketing</div>
+        <div class="tl-company">Indian Institute of Management (IIM) Indore</div>
+        <div class="tl-desc">Advanced strategic marketing certification from one of India's top business schools.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="reveal">
+    <span class="section-label">What I Offer</span>
+    <h2>Services Built to<br>Drive Real Results</h2>
+    <p class="section-intro">Whether you need leads, brand awareness, or organic traffic — I build and execute strategies that deliver measurable impact.</p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card sc1">
+      <div class="svc-icon">📱</div>
+      <div class="svc-title">Social Media Marketing</div>
+      <div class="svc-desc">Full-service social media strategy, content planning, community management, and growth across Instagram, Facebook, LinkedIn & more. I've managed 15+ brands.</div>
+      <div class="svc-tags">
+        <span class="svc-tag">Strategy</span><span class="svc-tag">Content</span>
+        <span class="svc-tag">Reels</span><span class="svc-tag">Growth</span>
+      </div>
+    </div>
+    <div class="service-card sc2">
+      <div class="svc-icon">🎯</div>
+      <div class="svc-title">Paid Advertising</div>
+      <div class="svc-desc">High-ROI campaign management on Google Ads & Meta Ads. From setup to optimization, I maximize every rupee — proven with a 25x ROI result.</div>
+      <div class="svc-tags">
+        <span class="svc-tag">Google Ads</span><span class="svc-tag">Meta Ads</span>
+        <span class="svc-tag">Lead Gen</span><span class="svc-tag">Retargeting</span>
+      </div>
+    </div>
+    <div class="service-card sc3">
+      <div class="svc-icon">🔍</div>
+      <div class="svc-title">SEO & Local SEO</div>
+      <div class="svc-desc">On-page optimization, keyword research, Google My Business management, and local search visibility strategies. Proven results for CIPET & TIME.</div>
+      <div class="svc-tags">
+        <span class="svc-tag">On-Page SEO</span><span class="svc-tag">GMB</span>
+        <span class="svc-tag">Keywords</span><span class="svc-tag">Local</span>
+      </div>
+    </div>
+    <div class="service-card sc4">
+      <div class="svc-icon">✍️</div>
+      <div class="svc-title">Content Creation</div>
+      <div class="svc-desc">Compelling multi-format content — copywriting, visual design, video Reels, and social posts tailored to your brand voice and audience.</div>
+      <div class="svc-tags">
+        <span class="svc-tag">Copywriting</span><span class="svc-tag">Canva</span>
+        <span class="svc-tag">Video Reels</span><span class="svc-tag">Design</span>
+      </div>
+    </div>
+    <div class="service-card sc5">
+      <div class="svc-icon">⚙️</div>
+      <div class="svc-title">Marketing Automation</div>
+      <div class="svc-desc">Bulk SMS, WhatsApp marketing, and email campaigns to nurture leads at scale. Integrated with CRM tools like HubSpot for full pipeline visibility.</div>
+      <div class="svc-tags">
+        <span class="svc-tag">WhatsApp</span><span class="svc-tag">Email</span>
+        <span class="svc-tag">HubSpot</span><span class="svc-tag">Bulk SMS</span>
+      </div>
+    </div>
+    <div class="service-card sc6">
+      <div class="svc-icon">🤖</div>
+      <div class="svc-title">AI-Powered Marketing</div>
+      <div class="svc-desc">Leveraging Generative AI tools — ChatGPT, HeyGen, Veo 3, AI Agents — to supercharge campaigns, automate workflows, and create next-gen content.</div>
+      <div class="svc-tags">
+        <span class="svc-tag">ChatGPT</span><span class="svc-tag">HeyGen</span>
+        <span class="svc-tag">Veo 3</span><span class="svc-tag">AI Agents</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS / CASE STUDIES -->
+<section id="results">
+  <div class="reveal">
+    <span class="section-label">Case Studies</span>
+    <h2>Numbers Don't Lie.<br>Here's Proof.</h2>
+    <p class="section-intro">Real campaigns, real budgets, real results across diverse industries.</p>
+  </div>
+  <div class="results-grid reveal">
+    <div class="result-card">
+      <div class="result-header rh1">
+        <div class="result-industry">Travel & Tourism</div>
+        <div class="result-title">Chennai Travel Agency — Meta Ads</div>
+      </div>
+      <div class="result-body">
+        <div class="result-metric">
+          <div class="metric-big" style="color:var(--orange)">25x</div>
+          <div class="metric-label">Return on Ad Spend</div>
+        </div>
+        <div class="result-detail">Designed and executed a strategic Meta Ads campaign for a Chennai-based travel agency. Achieved 25x ROI, significantly exceeding industry benchmarks while maintaining a lean monthly budget of just ₹5,000.</div>
+        <div class="result-tags">
+          <span class="result-tag">Meta Ads</span>
+          <span class="result-tag">Lead Generation</span>
+          <span class="result-tag">Travel</span>
+        </div>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-header rh2">
+        <div class="result-industry">Travel — Lead Generation</div>
+        <div class="result-title">1000+ Leads on ₹5k/Month Budget</div>
+      </div>
+      <div class="result-body">
+        <div class="result-metric">
+          <div class="metric-big" style="color:var(--teal)">1000+</div>
+          <div class="metric-label">Qualified Leads Generated</div>
+        </div>
+        <div class="result-detail">Generated over 1,000 qualified leads for a travel client with a lean ₹5,000/month ad budget — demonstrating the power of precise audience targeting and cost-efficient campaign structuring.</div>
+        <div class="result-tags">
+          <span class="result-tag">Lead Gen</span>
+          <span class="result-tag">Budget Optimization</span>
+          <span class="result-tag">Meta Ads</span>
+        </div>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-header rh3">
+        <div class="result-industry">Education — Local SEO</div>
+        <div class="result-title">CIPET & TIME — Local Visibility</div>
+      </div>
+      <div class="result-body">
+        <div class="result-metric">
+          <div class="metric-big" style="color:var(--purple)">↑ Local</div>
+          <div class="metric-label">Search Visibility & Engagement</div>
+        </div>
+        <div class="result-detail">Implemented comprehensive Local SEO strategies and managed Google My Business listings for CIPET and TIME institutes, significantly improving local search rankings, discovery rates, and customer engagement.</div>
+        <div class="result-tags">
+          <span class="result-tag">Local SEO</span>
+          <span class="result-tag">Google My Business</span>
+          <span class="result-tag">Education</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS BAND -->
+<div id="skills-band">
+  <div class="skills-band-title">Tools & Platforms I Work With</div>
+  <div class="marquee-wrap">
+    <div class="marquee">
+      <span class="skill-badge">📊 Google Ads</span>
+      <span class="skill-badge">📘 Meta Ads</span>
+      <span class="skill-badge">📈 Google Analytics</span>
+      <span class="skill-badge">🔍 SEO</span>
+      <span class="skill-badge">📍 Google My Business</span>
+      <span class="skill-badge">🎨 Canva</span>
+      <span class="skill-badge">🖌️ Adobe XD</span>
+      <span class="skill-badge">💬 HubSpot</span>
+      <span class="skill-badge">🤖 ChatGPT</span>
+      <span class="skill-badge">🎬 HeyGen</span>
+      <span class="skill-badge">📹 Veo 3</span>
+      <span class="skill-badge">📱 Instagram</span>
+      <span class="skill-badge">✉️ Email Marketing</span>
+      <span class="skill-badge">💬 WhatsApp Marketing</span>
+      <span class="skill-badge">📊 Meta Business Suite</span>
+      <span class="skill-badge">📊 Google Ads</span>
+      <span class="skill-badge">📘 Meta Ads</span>
+      <span class="skill-badge">📈 Google Analytics</span>
+      <span class="skill-badge">🔍 SEO</span>
+      <span class="skill-badge">📍 Google My Business</span>
+      <span class="skill-badge">🎨 Canva</span>
+      <span class="skill-badge">🖌️ Adobe XD</span>
+      <span class="skill-badge">💬 HubSpot</span>
+      <span class="skill-badge">🤖 ChatGPT</span>
+      <span class="skill-badge">🎬 HeyGen</span>
+      <span class="skill-badge">📹 Veo 3</span>
+      <span class="skill-badge">📱 Instagram</span>
+      <span class="skill-badge">✉️ Email Marketing</span>
+      <span class="skill-badge">💬 WhatsApp Marketing</span>
+      <span class="skill-badge">📊 Meta Business Suite</span>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="reveal">
+    <span class="section-label">Testimonials</span>
+    <h2>What Clients &<br>Colleagues Say</h2>
+    <p class="section-intro">Real words from people I've worked with across industries.</p>
+  </div>
+  <div class="testi-grid reveal">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <div class="testi-quote">"</div>
+      <div class="testi-text">Arun delivered results we didn't think were possible on our budget. The Meta Ads campaign he ran completely transformed our lead pipeline. We went from struggling to get inquiries to having more leads than we could handle.</div>
+      <div class="testi-author">
+        <div class="testi-avatar av1">R</div>
+        <div>
+          <div class="testi-name">Rajesh Kumar</div>
+          <div class="testi-role">Owner, Travel Agency · Chennai</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <div class="testi-quote">"</div>
+      <div class="testi-text">Our Google My Business visibility improved dramatically after Arun took over our local SEO. Students are now finding us easily online. He understands both the technical and creative side of digital marketing really well.</div>
+      <div class="testi-author">
+        <div class="testi-avatar av2">S</div>
+        <div>
+          <div class="testi-name">Sundar Rajan</div>
+          <div class="testi-role">Centre Head, Education Institute</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <div class="testi-quote">"</div>
+      <div class="testi-text">Working with Arun is a pleasure. He's not just a marketer — he's a strategic thinker who understands business goals. His social media strategies helped us grow our resort's online presence and bookings significantly.</div>
+      <div class="testi-author">
+        <div class="testi-avatar av3">P</div>
+        <div>
+          <div class="testi-name">Priya Narayanan</div>
+          <div class="testi-role">Marketing Manager, Hospitality</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="reveal">
+    <span class="section-label">Get In Touch</span>
+    <h2>Let's Build Something<br>That Performs.</h2>
+    <p class="section-intro">Whether you're a business looking for results or a company hiring a marketer — I'd love to hear from you.</p>
+  </div>
+  <div class="contact-layout reveal">
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-label">Phone</div>
+          <div class="contact-value">+91 70108 51610</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value"><a href="mailto:prakash.arun349@gmail.com">prakash.arun349@gmail.com</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">💼</div>
+        <div>
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-value"><a href="https://linkedin.com/in/digital-arun-prakash" target="_blank">linkedin.com/in/digital-arun-prakash</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Location</div>
+          <div class="contact-value">Chennai, Tamil Nadu, India</div>
+        </div>
+      </div>
+      <div style="padding: 20px 24px; background: #1a1a1a; border-radius: 14px; border: 1px solid #2a2a2a;">
+        <div style="font-size:0.78rem;color:#666;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;">Open to</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span style="background:rgba(255,92,26,0.2);color:#ff7a47;border:1px solid rgba(255,92,26,0.3);padding:6px 14px;border-radius:50px;font-size:0.82rem;">Freelance Projects</span>
+          <span style="background:rgba(0,196,167,0.15);color:var(--teal);border:1px solid rgba(0,196,167,0.25);padding:6px 14px;border-radius:50px;font-size:0.82rem;">Full-Time Roles</span>
+          <span style="background:rgba(124,58,237,0.2);color:#a78bfa;border:1px solid rgba(124,58,237,0.3);padding:6px 14px;border-radius:50px;font-size:0.82rem;">Consulting</span>
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Jane Doe" required>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="jane@company.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>I'm reaching out about…</label>
+        <select>
+          <option value="">Select an option</option>
+          <option>Freelance Project</option>
+          <option>Full-Time Job Opportunity</option>
+          <option>Collaboration</option>
+          <option>General Enquiry</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell me about your project, company, or role…" required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Send Message →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Arun<span>.</span></div>
+  <div class="footer-text">© 2025 Arun Prakash N · Digital Marketing Specialist · Chennai</div>
+  <div class="footer-links">
+    <a href="mailto:prakash.arun349@gmail.com">Email</a>
+    <a href="https://linkedin.com/in/digital-arun-prakash" target="_blank">LinkedIn</a>
+    <a href="#hero">Back to Top ↑</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-submit');
+    btn.textContent = '✓ Message Sent!';
+    btn.style.background = 'linear-gradient(135deg, #00c4a7, #00e8c6)';
+    setTimeout(() => {
+      btn.textContent = 'Send Message →';
+      btn.style.background = '';
+      e.target.reset();
+    }, 3000);
+  }
+
+  // Smooth active nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - 80) current = sec.getAttribute('id');
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--orange)' : '';
+    });
+  });
+</script>
+</body>
+</html>
